@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow - To Do</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ✓
+            </div>
+
+            <span>TaskFlow</span>
+
+        </div>
+
+
+        <nav>
+
+            <button class="nav-item active">
+
+                <span>▣</span>
+
+                Dashboard
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <span>✓</span>
+
+                My Tasks
+
+            </button>
+
+
+            <button class="nav-item">
+
+                <span>★</span>
+
+                Important
+
+            </button>
+
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <p>Daily productivity</p>
+
+            <div class="progress">
+
+                <div id="sideProgress"></div>
+
+            </div>
+
+            <small id="progressText">
+                0% completed
+            </small>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- Main -->
+
+    <main class="main">
+
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div>
+
+                <p class="welcome">
+                    Welcome back 👋
+                </p>
+
+                <h1>
+                    My Tasks
+                </h1>
+
+            </div>
+
+
+            <div class="date" id="currentDate">
+            </div>
+
+        </header>
+
+
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    📋
+                </div>
+
+                <div>
+
+                    <p>Total Tasks</p>
+
+                    <h2 id="totalTasks">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <p>Pending</p>
+
+                    <h2 id="pendingTasks">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>Completed</p>
+
+                    <h2 id="completedTasks">
+                        0
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- Add Task -->
+
+        <section class="add-section">
+
+            <div class="section-title">
+
+                <div>
+
+                    <h2>
+                        Add New Task
+                    </h2>
+
+                    <p>
+                        Organize your day and stay productive.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="input-group">
+
+                    <label>
+                        Task
+                    </label>
+
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="What do you need to do?"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Description
+                    </label>
+
+                    <input
+                        type="text"
+                        id="description"
+                        placeholder="Add a short description"
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Priority
+                    </label>
+
+                    <select id="priority">
+
+                        <option value="Low">
+                            Low
+                        </option>
+
+                        <option value="Medium" selected>
+                            Medium
+                        </option>
+
+                        <option value="High">
+                            High
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    class="add-button"
+                    onclick="addTodo()"
+                >
+
+                    + Add Task
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Tasks -->
+
+        <section class="tasks-section">
+
+
+            <div class="tasks-header">
+
+                <div>
+
+                    <h2>
+                        Today's Tasks
+                    </h2>
+
+                    <p>
+                        Manage your daily activities
+                    </p>
+
+                </div>
+
+
+                <div class="filter-buttons">
+
+                    <button
+                        class="filter active-filter"
+                        onclick="filterTasks('all')"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter"
+                        onclick="filterTasks('pending')"
+                    >
+                        Pending
+                    </button>
+
+                    <button
+                        class="filter"
+                        onclick="filterTasks('completed')"
+                    >
+                        Completed
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="todoList">
+
+                <!-- Tasks will appear here -->
+
+            </div>
+
+
+            <div
+                id="emptyState"
+                class="empty-state"
+            >
+
+                <div class="empty-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    No tasks yet
+                </h3>
+
+                <p>
+                    Add your first task to get started.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
